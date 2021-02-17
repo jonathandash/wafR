@@ -1,4 +1,9 @@
+# -----------------------------------------------------------------------------
+# Functions for the wafR package
+
+
 #### Set Mag Groome Custom colour plotter ####
+
 # Create a vector of colours from the Margules Groome stationary
 
 MagGroome_colours <- c(
@@ -30,7 +35,7 @@ MagGroome_cols <- function(...) {
   if (is.null(cols))
     return (MagGroome_colours)
 
-  MagGroome_colours[cols]
+  return(MagGroome_colours[cols])
 }
 
 
