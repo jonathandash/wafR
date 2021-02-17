@@ -2,3 +2,5 @@
 
 export(MagGroome_cols)
 export(MagGroome_pal)
+export(scale_colour_MagGroome)
+export(scale_fill_MagGroome)
