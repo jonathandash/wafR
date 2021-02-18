@@ -23,13 +23,9 @@ The goal of wafR is to provide data management and graphing according to the Mar
 
 ## Installation
 
-You can install the released version of wafR from [CRAN](https://CRAN.R-project.org) with:
 
-``` r
-install.packages("wafR")
-```
 
-And the development version from [GitHub](https://github.com/) with:
+This package is not on CRAN.You can install the development version from [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("devtools")
@@ -44,20 +40,6 @@ library(wafR)
 ## basic example code
 
 
-```
-
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
-
-```{r cars}
-summary(cars)
-```
-
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date.
-
-You can also embed plots, for example:
-
-```{r pressure, echo = FALSE}
-plot(pressure)
 ```
 
 In that case, don't forget to commit and push the resulting figure files, so they display on GitHub!
