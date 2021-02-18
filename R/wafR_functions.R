@@ -1,6 +1,19 @@
 # -----------------------------------------------------------------------------
 # Functions for the wafR package
 
+# Global
+`mgclgrey` = '#FAFAFA'
+`mgcmgrey` = '#C8C8C8'
+`mgcgrey` = '#969696'
+`mgcdgrey` = '#7f7f7f'
+`mgcyellow` = '#FAFA64'
+`mgclorange` = '#FAC800'
+`mgcorange` = '#FA7D00'
+`mgcllgreen` =  "#C1E089"
+`mgcgreen` = "#006B5B"
+`mgclightgreen` = "#78B142"
+`mgcblue` = "#192F57"
+
 
 #### Set Mag Groome Custom colour plotter ####
 
@@ -120,18 +133,53 @@ scale_fill_MagGroome <- function(palette = "main", discrete = TRUE, reverse = FA
 
 
 
-#' Margules Groome general plotting theme for ggplots
+#' Margules Groome plotting theme for ggplots
 #'
-#' Function for Margules Groome general plotting theme for ggplots. Once appllied you can further customise using theme
+#' Function for Margules Groome general and WAF plotting theme for ggplots. Once appllied you can further customise using theme
 #' @export
 #' @importFrom ggplot2 '%+replace%'
+#' @param WAF Boolean indicating whether plot for WAF reporting or not. Default = FALSE
 #' @examples
-#' theme_MagGroome()
+#' theme_MagGroome(WAF = FALSE)
 #'
 
 
-theme_MagGroome <- function () {
+theme_MagGroome <- function (WAF = FALSE) {
   ggplot2::theme_bw(base_size=12, base_family="Avenir") %+replace%
+  if(WAF)
+  {
+
+    ggplot2::theme(
+      legend.position = "top",
+      legend.key.size = grid::unit(0.25, "cm"),
+      legend.key.width = grid::unit(0.5, "cm"),
+      legend.box.background = ggplot2::element_rect(colour = "#7f7f7f"),
+      legend.title = ggplot2::element_blank(),
+      panel.border = ggplot2::element_rect(fill=NA,colour = "#7f7f7f",size=0.75,linetype="solid"),
+      panel.grid.major.x = ggplot2::element_blank(),
+      panel.grid.minor.x = ggplot2::element_blank(),
+      panel.grid.minor.y = ggplot2::element_blank(),
+      panel.grid.major.y = ggplot2::element_line(linetype = "dashed",colour = "#7f7f7f"),
+      axis.text.x = ggplot2::element_text(
+        size = 9,
+        angle = 90,
+        hjust = 1,
+        vjust = 0.5,
+        colour = 'black'),
+      axis.text.y = ggplot2::element_text(colour = 'black'),
+      axis.line.x = ggplot2::element_line(color = "#7f7f7f",size=0.1),
+      axis.line.y = ggplot2::element_line(color = "#7f7f7f",size=0.1),
+      axis.ticks.x = ggplot2::element_line(color = "#7f7f7f",size=0.1),
+      axis.ticks.y = ggplot2::element_line(color = "#7f7f7f",size=0.1),
+
+
+
+    )
+
+  }
+
+    else
+      {
     ggplot2::theme(
       legend.position = "top",
       legend.key.size = grid::unit(0.25, "cm"),
@@ -154,7 +202,60 @@ theme_MagGroome <- function () {
       axis.ticks.y = ggplot2::element_line(color = "#7f7f7f",size=0.1),
 
     )
+     }
+
 }
+
+
+
+#### Volume bar graph ####
+
+#' Bar graph showing woodflow volumes
+#'
+#' Function for plotting bar graphs of volumes from Woodflow model outputs
+#' @export
+#' @param data Dataframe containing woodflow outputs. This will typically have been produced using e.g. Remsoft Woodstock
+#' @param value Column containing values to be plotted on the y-axis. This will typically be volume
+#' @param Year Column in df containing values for the x-axis
+#' @param Species_select Which species is being plotted
+#' @param fillvariable Variable to use for assigning fill colour to the bar graph
+#' @importFrom utils data
+#'
+
+
+volume_graph_bar <- function (data,
+                              value,
+                              Year,
+                              Species_select,
+                              fillvariable)
+
+{
+  if(Species_select == 'Douglas-fir')
+  {
+    limit = 400000
+    step_amount = 100000
+  }
+  else
+  {
+    limit = 7000000
+    step_amount = 1000000
+  }
+  g = ggplot2::ggplot(data,
+             ggplot2::aes(y={{value}}, x={{Year}}, fill = {{fillvariable}})) +
+    ggplot2::geom_bar( stat="identity") +
+    ggplot2::labs(
+      y = base::expression(Recoverable~Volume~(m^3)),
+      x = "Year Ending December")  +
+    ggplot2::scale_fill_manual(values = c(mgcblue,mgclightgreen, mgcgreen,mgcllgreen,mgcorange)) +
+    theme_MagGroome(WAF = TRUE) +
+    ggplot2::scale_y_continuous(limit = c(0, limit), breaks=seq(0, limit, step_amount)) +
+    ggplot2::scale_x_continuous(breaks=seq(min(data$Year), max(data$Year), 2)) +
+    ggplot2::guides(fill = ggplot2::guide_legend(nrow = 1) )
+  #base::print(g)
+  return (g)
+}
+
+
 
 
 

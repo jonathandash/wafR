@@ -2,14 +2,17 @@
 % Please edit documentation in R/wafR_functions.R
 \name{theme_MagGroome}
 \alias{theme_MagGroome}
-\title{Margules Groome general plotting theme for ggplots}
+\title{Margules Groome plotting theme for ggplots}
 \usage{
-theme_MagGroome()
+theme_MagGroome(WAF = FALSE)
+}
+\arguments{
+\item{WAF}{Boolean indicating whether plot for WAF reporting or not. Default = FALSE}
 }
 \description{
-Function for Margules Groome general plotting theme for ggplots. Once appllied you can further customise using theme
+Function for Margules Groome general and WAF plotting theme for ggplots. Once appllied you can further customise using theme
 }
 \examples{
-theme_MagGroome()
+theme_MagGroome(WAF = FALSE)
 
 }
