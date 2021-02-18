@@ -217,7 +217,8 @@ theme_MagGroome <- function (WAF = FALSE) {
 #' @param data Dataframe containing woodflow outputs. This will typically have been produced using e.g. Remsoft Woodstock
 #' @param value Column containing values to be plotted on the y-axis. This will typically be volume
 #' @param Year Column in df containing values for the x-axis
-#' @param Species_select Which species is being plotted
+#' @param WAF_form Boolean indicating whether plot for WAF reporting or not. Default = TRUE
+#' @param Species_select Which species is being plotted if this is a WAF report output, Default = 'Radiata_pine'
 #' @param fillvariable Variable to use for assigning fill colour to the bar graph
 #' @importFrom utils data
 #'
@@ -226,10 +227,15 @@ theme_MagGroome <- function (WAF = FALSE) {
 volume_graph_bar <- function (data,
                               value,
                               Year,
-                              Species_select,
-                              fillvariable)
+                              fillvariable,
+                              WAF_form = TRUE,
+                              Species_select = 'Radiata_pine')
 
 {
+
+  if(WAF_form)
+  {
+
   if(Species_select == 'Douglas-fir')
   {
     limit = 400000
@@ -251,8 +257,27 @@ volume_graph_bar <- function (data,
     ggplot2::scale_y_continuous(limit = c(0, limit), breaks=seq(0, limit, step_amount)) +
     ggplot2::scale_x_continuous(breaks=seq(min(data$Year), max(data$Year), 2)) +
     ggplot2::guides(fill = ggplot2::guide_legend(nrow = 1) )
-  #base::print(g)
   return (g)
+  }
+
+  else
+  {
+
+    g = ggplot2::ggplot(data,
+                        ggplot2::aes(y={{value}}, x={{Year}}, fill = {{fillvariable}})) +
+      ggplot2::geom_bar( stat="identity") +
+      ggplot2::labs(
+        y = base::expression(Recoverable~Volume~(m^3)),
+        x = "Year Ending December")  +
+      ggplot2::scale_fill_manual(values = c(mgcblue,mgclightgreen, mgcgreen,mgcllgreen,mgcorange)) +
+      theme_MagGroome(WAF = FALSE) +
+      #ggplot2::scale_y_continuous(limit = c(0, limit), breaks=seq(0, limit, step_amount)) +
+      #ggplot2::scale_x_continuous(breaks=seq(min(data$Year), max(data$Year), 2)) +
+      ggplot2::guides(fill = ggplot2::guide_legend(nrow = 1) )
+    return (g)
+
+  }
+
 }
 
 

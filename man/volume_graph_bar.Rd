@@ -4,7 +4,14 @@
 \alias{volume_graph_bar}
 \title{Bar graph showing woodflow volumes}
 \usage{
-volume_graph_bar(data, value, Year, Species_select, fillvariable)
+volume_graph_bar(
+  data,
+  value,
+  Year,
+  fillvariable,
+  WAF_form = TRUE,
+  Species_select = "Radiata_pine"
+)
 }
 \arguments{
 \item{data}{Dataframe containing woodflow outputs. This will typically have been produced using e.g. Remsoft Woodstock}
@@ -13,9 +20,11 @@ volume_graph_bar(data, value, Year, Species_select, fillvariable)
 
 \item{Year}{Column in df containing values for the x-axis}
 
-\item{Species_select}{Which species is being plotted}
-
 \item{fillvariable}{Variable to use for assigning fill colour to the bar graph}
+
+\item{WAF_form}{Boolean indicating whether plot for WAF reporting or not. Default = TRUE}
+
+\item{Species_select}{Which species is being plotted if this is a WAF report output, Default = 'Radiata_pine'}
 }
 \description{
 Function for plotting bar graphs of volumes from Woodflow model outputs
