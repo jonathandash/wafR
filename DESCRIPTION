@@ -18,4 +18,5 @@ Imports:
     grDevices,
     rlang,
     dplyr,
-    grid
+    grid,
+    magrittr
