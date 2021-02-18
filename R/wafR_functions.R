@@ -118,3 +118,43 @@ scale_fill_MagGroome <- function(palette = "main", discrete = TRUE, reverse = FA
   }
 }
 
+
+
+#' Margules Groome general plotting theme for ggplots
+#'
+#' Function for Margules Groome general plotting theme for ggplots. Once appllied you can further customise using theme
+#' @export
+#' @importFrom ggplot2 '%+replace%'
+#' @examples
+#' theme_MagGroome()
+#'
+
+
+theme_MagGroome <- function () {
+  ggplot2::theme_bw(base_size=12, base_family="Avenir") %+replace%
+    ggplot2::theme(
+      legend.position = "top",
+      legend.key.size = grid::unit(0.25, "cm"),
+      legend.key.width = grid::unit(0.5, "cm"),
+      legend.box.background = ggplot2::element_rect(colour = "#7f7f7f"),
+      #legend.title = element_blank(),
+      panel.border = ggplot2::element_rect(fill=NA,colour = "#7f7f7f",size=0.75,linetype="solid"),
+      panel.grid.major.x = ggplot2::element_blank(),
+      panel.grid.minor.x = ggplot2::element_blank(),
+      axis.text.x = ggplot2::element_text(
+        size = 9,
+        #angle = 90,
+        hjust = 1,
+        vjust = 0.5,
+        colour = 'black'),
+      axis.text.y = ggplot2::element_text(colour = 'black'),
+      axis.line.x = ggplot2::element_line(color = "#7f7f7f",size=0.1),
+      axis.line.y = ggplot2::element_line(color = "#7f7f7f",size=0.1),
+      axis.ticks.x = ggplot2::element_line(color = "#7f7f7f",size=0.1),
+      axis.ticks.y = ggplot2::element_line(color = "#7f7f7f",size=0.1),
+
+    )
+}
+
+
+
