@@ -355,6 +355,73 @@ volume_graph_line <- function (data,
 }
 
 
+#' Line graph showing clearfell ages
+#'
+#' Function for plotting line graphs of clearfell ages from Woodflow model outputs
+#' @export
+#' @param data Dataframe containing woodflow outputs. This will typically have been produced using e.g. Remsoft Woodstock
+#' @param value Column containing values to be plotted on the y-axis. This will typically be volume
+#' @param Year Column in df containing values for the x-axis
+#' @param WAF_form Boolean indicating whether plot for WAF reporting or not. Default = TRUE
+#' @param colourVariable Variable to use for assigning fill colour to the bar graph
+#' @importFrom utils data
+#'
+
+
+clearfellAge_line <- function(data,
+                              Year,
+                              value,
+                              colourVariable,
+                              WAF_form)
+
+{
+
+  if(WAF_form)
+  {
+
+  g<-ggplot2::ggplot(data,
+            ggplot2::aes(y={{value}}, x={{Year}}, color = {{colourVariable}}, size = factor({{colourVariable}}))) +
+    ggplot2::geom_line() +
+    ggplot2::scale_size_manual("Ownership", values = c(0.8, 0.4), guide = "none") +
+    ggplot2::labs(
+      y = 'Mean clearfell age (y)',
+      x = "Year Ending December")  +
+    ggplot2::scale_colour_manual(values = c( mgcblue,mgclightgreen, mgcgreen,mgcllgreen,mgcorange)) +
+    theme_MagGroome(WAF = TRUE) +
+    ggplot2::scale_y_continuous(limit = c(0, 50), breaks=seq(0, 50, 5)) +
+    ggplot2::scale_x_continuous(breaks=seq(min(data$Year), max(data$Year), 2)) +
+    ggplot2::guides(fill = ggplot2::guide_legend(nrow = 1))
+
+
+  return(g)
+
+  }
+
+  else
+
+  {
+
+    g<-ggplot2::ggplot(data,
+                       ggplot2::aes(y={{value}}, x={{Year}}, color = {{colourVariable}}, size = factor({{colourVariable}}))) +
+      ggplot2::geom_line() +
+      ggplot2::scale_size_manual("Ownership", values = c(0.8, 0.4), guide = "none") +
+      ggplot2::labs(
+        y = 'Mean clearfell age (y)',
+        x = "Year Ending December")  +
+      ggplot2::scale_colour_manual(values = c( mgcblue,mgclightgreen, mgcgreen,mgcllgreen,mgcorange)) +
+      theme_MagGroome(WAF = FALSE) +
+      ggplot2::scale_y_continuous(limit = c(0, 50), breaks=seq(0, 50, 5)) +
+      ggplot2::scale_x_continuous(breaks=seq(min(data$Year), max(data$Year), 2)) +
+      ggplot2::guides(fill = ggplot2::guide_legend(nrow = 1))
+
+
+    return(g)
+
+  }
+
+
+}
+
 
 
 
