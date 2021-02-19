@@ -3,6 +3,7 @@
 export("%>%")
 export(MagGroome_cols)
 export(MagGroome_pal)
+export(YT_graph_line)
 export(clearfellAge_line)
 export(scale_colour_MagGroome)
 export(scale_fill_MagGroome)

@@ -423,5 +423,62 @@ clearfellAge_line <- function(data,
 }
 
 
+#' Line graph showing yield tables as a
+#'
+#' Function for plotting line graphs of clearfell ages from Woodflow model outputs
+#' @export
+#' @param data Dataframe containing woodflow outputs. This will typically have been produced using e.g. Remsoft Woodstock
+#' @param value Column containing values to be plotted on the y-axis. This will typically be volume
+#' @param Year Column in df containing values for the x-axis
+#' @param WAF_form Boolean indicating whether plot for WAF reporting or not. Default = TRUE
+#' @param colourVariable Variable to use for assigning fill colour to the bar graph
+#' @importFrom utils data
+#'
+
+YT_graph_line <- function(data,
+                          Year,
+                          value,
+                          colourVariable,
+                          WAF_form)
+{
+
+  if(WAF_form)
+  {
+  g = ggplot2::ggplot(data,
+             ggplot2::aes(y={{value}}, x={{Year}}, colour = {{colourVariable}})) +
+    ggplot2::geom_line() +
+    ggplot2::labs(
+      y = expression(Recoverable~Volume~(m^3)),
+      x = "Age")  +
+    ggplot2::scale_colour_manual(values = c(mgcblue, mgcllgreen, mgcgreen,mgcorange)) +
+    theme_MagGroome(WAF = TRUE) +
+    ggplot2::scale_y_continuous(limit = c(0, 1000), breaks=seq(0, 1000, 100)) +
+    # scale_y_continuous(limit = c(0, limit), breaks=seq(0, limit, step_amount),labels = number) +
+    ggplot2::scale_x_continuous(breaks=seq(10,60,2 ))
+  return (g)
+
+  }
+
+
+
+  else
+
+  {
+    g = ggplot2::ggplot(data,
+                        ggplot2::aes(y={{value}}, x={{Year}}, colour = {{colourVariable}})) +
+      ggplot2::geom_line() +
+      ggplot2::labs(
+        y = expression(Recoverable~Volume~(m^3)),
+        x = "Age")  +
+      ggplot2::scale_colour_manual(values = c(mgcblue, mgcllgreen, mgcgreen,mgcorange)) +
+      theme_MagGroome(WAF = FALSE) +
+      ggplot2::scale_y_continuous(limit = c(0, 1000), breaks=seq(0, 1000, 100)) +
+      # scale_y_continuous(limit = c(0, limit), breaks=seq(0, limit, step_amount),labels = number) +
+      ggplot2::scale_x_continuous(breaks=seq(10,60,2 ))
+    return (g)
+
+  }
+
+}
 
 
