@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# wafR <img src='man/figures/logo.png' align="right" height="25" />
+# wafR <img src='man/figures/logo.png' align="right" height="50" />
 
 <!-- badges: start -->
 <!-- badges: end -->
