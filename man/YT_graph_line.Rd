@@ -2,7 +2,7 @@
 % Please edit documentation in R/wafR_functions.R
 \name{YT_graph_line}
 \alias{YT_graph_line}
-\title{Line graph showing yield tables as a}
+\title{Line graph showing yield tables}
 \usage{
 YT_graph_line(data, Year, value, colourVariable, WAF_form)
 }

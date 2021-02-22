@@ -423,7 +423,7 @@ clearfellAge_line <- function(data,
 }
 
 
-#' Line graph showing yield tables as a
+#' Line graph showing yield tables
 #'
 #' Function for plotting line graphs of clearfell ages from Woodflow model outputs
 #' @export
@@ -482,5 +482,26 @@ YT_graph_line <- function(data,
 }
 
 
+#' Save plots in the MG report style
+#'
+#' Convenience function for saving plots in the style needed for the Margules Groome report output. PNG files produced are suitable for copying directly into Word docs.
+#' @export
+#' @param plt ggplot object to be saved
+#' @param height Height in cm of the figure in the document. A single panel is often 10 cm but greater heights are suggested for multiple panel plots.
+#' @param fileName File name for the output. Should end with .png
+#'
+
+MG_save <- function(plt, height, fileName)
+
+{
+
+  ggplot2::ggsave(plt,
+         width = 14.2,
+         height = height,
+         dpi = 600,
+         units = c("cm"),
+         filename = here::here(fileName))
+
+}
 
 
