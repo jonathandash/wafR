@@ -145,7 +145,7 @@ scale_fill_MagGroome <- function(palette = "main", discrete = TRUE, reverse = FA
 
 
 theme_MagGroome <- function (WAF = FALSE) {
-  ggplot2::theme_bw(base_size=12, base_family="Avenir") %+replace%
+  ggplot2::theme_bw(base_size=12, base_family="sans") %+replace%
   if(WAF)
   {
 
