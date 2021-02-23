@@ -544,3 +544,38 @@ is_outlier <- function(x, type = 'both', outlier_range = 1.5)
 
   }
 
+
+
+#' Prepare WAF allrep data
+#'
+#' Function that transforms data from the allrep output of Remsoft Woodstock
+#' @export
+#' @param df The WAF allrep file.
+#' @param startYear Simulation start year.
+#' @param cutOverYear simulation cutover year.
+
+
+prepare_WAF_allrep<- function(df, startYear, cutOverYear)
+
+  {
+
+  g<-tidyr::pivot_longer(data = df, cols=!c(Output,Description), names_to = "PeriodText", values_to = "value") %>%
+  dplyr::mutate(Year = base::as.numeric(base::gsub("[^[:digit:].]", "",  PeriodText)) + startYear) %>%
+  tidyr::separate(Description, c("VariableName","WSR", "Species","Ownership", "Action"), sep=" ") %>%
+  dplyr::mutate(Scenario = Scenario) %>%
+  dplyr::mutate(Ownership = ifelse(Ownership == 'Large', 'Large-Scale Owners',
+                            ifelse(Ownership == 'Small', 'Small-Scale Owners', NA))) %>%
+  dplyr::filter(Year >= startYear,Year <= cutOverYear)
+
+  return(g)
+
+  }
+
+
+
+
+
+
+
+
+
