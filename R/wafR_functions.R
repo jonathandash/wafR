@@ -505,3 +505,41 @@ MG_save <- function(plt, height, fileName)
 }
 
 
+#' Identify low outliers
+#'
+#' Function that identifies whether observations are low outliers.
+#' @export
+#' @param x The variable of interest
+#' @param outlier_range The number of times outside the IQR that an observation is deemed to be an outlier. Default = 1.5
+#'
+#'#' @examples
+#' x <- rnorm(n = 1000, mean = 100)
+#' is_outlier_low(x)
+
+
+is_outlier_low <- function(x, outlier_range = 1.5)
+  {
+
+  return(x < stats::quantile(x, 0.25) - outlier_range * stats::IQR(x))
+
+}
+
+
+#' Identify high outliers
+#'
+#' Function that identifies whether observations are high outliers.
+#' @export
+#' @param x The variable of interest
+#' @param outlier_range The number of times outside the IQR that an observation is deemed to be an outlier. Default = 1.5
+#'
+#' @examples
+#' x <- rnorm(n = 1000, mean = 100)
+#' is_outlier_high(x)
+
+
+is_outlier_high<- function(x, outlier_range = 1.5)
+{
+
+  return(x > stats::quantile(x, 0.75) + outlier_range * stats::IQR(x))
+
+}
