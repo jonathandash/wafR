@@ -40,3 +40,14 @@ volume_graph_bar(data = WAF_allrep,
 ```
 
 <img src="man/figures/README-example-1.png" width="100%" />
+
+``` r
+
+volume_graph_bar(data = WAF_allrep,
+                 value = value, Year = Year,
+                 fillvariable = Ownership,
+                 WAF_form = TRUE,
+                 Species_select = 'Radiata_pine')
+```
+
+<img src="man/figures/README-example-2.png" width="100%" />
