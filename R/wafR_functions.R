@@ -2,7 +2,7 @@
 # Functions for the wafR package
 
 # Global
-`mgclgrey` = '#FAFAFA'
+#`mgclgrey` = '#FAFAFA'
 `mgcmgrey` = '#C8C8C8'
 `mgcgrey` = '#969696'
 `mgcdgrey` = '#7f7f7f'
@@ -20,7 +20,7 @@
 # Create a vector of colours from the Margules Groome stationary
 
 MagGroome_colours <- c(
-  `mgclgrey` = '#FAFAFA',
+  #`mgclgrey` = '#FAFAFA',
   `mgcmgrey` = '#C8C8C8',
   `mgcgrey` = '#969696',
   `mgcdgrey` = '#7f7f7f',
@@ -53,7 +53,7 @@ MagGroome_cols <- function(...) {
 
 
 MagGroome_palettes <- list(
-  `main`  = MagGroome_cols("mgclgrey", "mgcmgrey",
+  `main`  = MagGroome_cols("mgcmgrey",
                            "mgcgrey", "mgcdgrey",
                            "mgcyellow","mgclorange",
                            "mgcorange", "mgcllgreen",
