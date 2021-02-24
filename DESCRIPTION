@@ -21,6 +21,10 @@ Imports:
     grid,
     magrittr,
     here,
-    tidyr
+    tidyr,
+    cowplot,
+    lemon,
+    gtable,
+    purrr
 Depends: 
     R (>= 2.10)

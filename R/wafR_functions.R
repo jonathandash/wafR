@@ -572,8 +572,23 @@ prepare_WAF_allrep<- function(df, startYear, cutOverYear)
   }
 
 
+#' Shift legend
+#'
+#' Shift legend into empty facets in a multipanel ggplot.
+#' @export
+#' @param p The ggplot2 multi-panel object.
+#' @importFrom graphics layout
+#' @importFrom stats setNames
 
 
+shift_legend <- function(p) {
+  pnls <- cowplot::plot_to_gtable(p) %>% gtable::gtable_filter("panel") %>%
+    with(setNames(grobs, layout$name)) %>% purrr::keep(~identical(.x,zeroGrob()))
+
+  if( length(pnls) == 0 ) stop( "No empty facets in the plot" )
+
+  lemon::reposition_legend( p, "center", panel=names(pnls) )
+}
 
 
 
