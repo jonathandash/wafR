@@ -29,3 +29,13 @@ volume_graph_bar(
 \description{
 Function for plotting bar graphs of volumes from Woodflow model outputs
 }
+\examples{
+data("WAF_allrep")
+
+volume_graph_bar(data = WAF_allrep,
+value = value, Year = Year,
+fillvariable = Ownership,
+WAF_form = TRUE,
+Species_select = 'Radiata_pine')
+
+}

@@ -221,6 +221,14 @@ theme_MagGroome <- function (WAF = FALSE) {
 #' @param Species_select Which species is being plotted if this is a WAF report output, Default = 'Radiata_pine'
 #' @param fillvariable Variable to use for assigning fill colour to the bar graph
 #' @importFrom utils data
+#' @examples
+#' data("WAF_allrep")
+#'
+#' volume_graph_bar(data = WAF_allrep,
+#' value = value, Year = Year,
+#' fillvariable = Ownership,
+#' WAF_form = TRUE,
+#' Species_select = 'Radiata_pine')
 #'
 
 

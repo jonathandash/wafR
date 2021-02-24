@@ -29,7 +29,14 @@ This is a basic example which shows you how to solve a common problem:
 ``` r
 library(wafR)
 ## basic example code
+
+data("WAF_allrep")
+
+volume_graph_bar(data = WAF_allrep,
+                 value = value, Year = Year,
+                 fillvariable = Ownership,
+                 WAF_form = FALSE,
+                 Species_select = 'Radiata_pine')
 ```
 
-In that case, don’t forget to commit and push the resulting figure
-files, so they display on GitHub!
+<img src="man/figures/README-example-1.png" width="100%" />
