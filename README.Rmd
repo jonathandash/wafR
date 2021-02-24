@@ -55,6 +55,15 @@ volume_graph_bar(data = WAF_allrep,
                  Species_select = 'Radiata_pine')
 
 
+# Find outliers
+x <- rnorm(n = 1000, mean = 100) # Create a normally distributed dataset
+
+is_outlier(x) # Find outliers
+
+boxplot(x) # Plot x to visualise the outliers
+
+
+
 ```
 
 
