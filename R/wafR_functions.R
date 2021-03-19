@@ -217,9 +217,10 @@ theme_MagGroome <- function (WAF = FALSE) {
 #' @param data Dataframe containing woodflow outputs. This will typically have been produced using e.g. Remsoft Woodstock
 #' @param value Column containing values to be plotted on the y-axis. This will typically be volume
 #' @param Year Column in df containing values for the x-axis
-#' @param WAF_form Boolean indicating whether plot for WAF reporting or not. Default = TRUE
+#' @param WAF_form True/False indicating whether plot for WAF reporting or not. Default = TRUE
 #' @param Species_select Which species is being plotted if this is a WAF report output, Default = 'Radiata_pine'
 #' @param fillvariable Variable to use for assigning fill colour to the bar graph
+#' @param ylim Maximum value for the y axis
 #' @importFrom utils data
 #' @examples
 #' data("WAF_allrep")
@@ -237,7 +238,8 @@ volume_graph_bar <- function (data,
                               Year,
                               fillvariable,
                               WAF_form = TRUE,
-                              Species_select = 'Radiata_pine')
+                              Species_select = 'Radiata_pine',
+                              ylim = 7000000)
 
 {
 
@@ -246,12 +248,12 @@ volume_graph_bar <- function (data,
 
   if(Species_select == 'Douglas-fir')
   {
-    limit = 400000
+    limit = ylim
     step_amount = 100000
   }
   else
   {
-    limit = 7000000
+    limit = ylim
     step_amount = 1000000
   }
   g = ggplot2::ggplot(data,
@@ -299,9 +301,10 @@ volume_graph_bar <- function (data,
 #' @param data Dataframe containing woodflow outputs. This will typically have been produced using e.g. Remsoft Woodstock
 #' @param value Column containing values to be plotted on the y-axis. This will typically be volume
 #' @param Year Column in df containing values for the x-axis
-#' @param WAF_form Boolean indicating whether plot for WAF reporting or not. Default = TRUE
+#' @param WAF_form True/False indicating whether plot for WAF reporting or not. Default = TRUE
 #' @param Species_select Which species is being plotted if this is a WAF report output, Default = 'Radiata_pine'
 #' @param colourvariable Variable to use for assigning fill colour to the bar graph
+#' @param ylim Maximum value for the y axis
 #' @importFrom utils data
 #'
 
@@ -311,7 +314,8 @@ volume_graph_line <- function (data,
                               Year,
                               colourvariable,
                               WAF_form = TRUE,
-                              Species_select = 'Radiata_pine')
+                              Species_select = 'Radiata_pine',
+                              ylim = 700000)
 
 {
 
@@ -320,12 +324,12 @@ volume_graph_line <- function (data,
 
     if(Species_select == 'Douglas-fir')
     {
-      limit = 400000
+      limit = ylim
       step_amount = 100000
     }
     else
     {
-      limit = 7000000
+      limit = ylim
       step_amount = 1000000
     }
     g = ggplot2::ggplot(data,

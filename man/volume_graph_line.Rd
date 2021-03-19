@@ -10,7 +10,8 @@ volume_graph_line(
   Year,
   colourvariable,
   WAF_form = TRUE,
-  Species_select = "Radiata_pine"
+  Species_select = "Radiata_pine",
+  ylim = 7e+05
 )
 }
 \arguments{
@@ -22,9 +23,11 @@ volume_graph_line(
 
 \item{colourvariable}{Variable to use for assigning fill colour to the bar graph}
 
-\item{WAF_form}{Boolean indicating whether plot for WAF reporting or not. Default = TRUE}
+\item{WAF_form}{True/False indicating whether plot for WAF reporting or not. Default = TRUE}
 
 \item{Species_select}{Which species is being plotted if this is a WAF report output, Default = 'Radiata_pine'}
+
+\item{ylim}{Maximum value for the y axis}
 }
 \description{
 Function for plotting line graphs of volumes from Woodflow model outputs
