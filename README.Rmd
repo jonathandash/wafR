@@ -19,7 +19,9 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of wafR is to provide data management and graphing according to the Margules Groome style guide for outputs from the New Zealand Wood Availability Forecasts produced by Margules Groome for the NZ Ministry for Primary Industries (MPI). The Margules Groome team may also find these functions useful for more general graphing in the house style. 
+The goal of wafR is to provide data management and graphing according to the Margules Groome style guide. This package was originally developed for outputs from the New Zealand Wood Availability Forecasts produced by Margules Groome for the NZ Ministry for Primary Industries (MPI) but has now been extended to include other functions. The Margules Groome team may find these functions useful for more general graphing in the house style. 
+
+More recently the package has been updated to include growth and yield functions that might be commonly used by the Margules Groome team.
 
 ## Installation
 
