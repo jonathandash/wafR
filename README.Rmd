@@ -28,7 +28,7 @@ The following is a list of growth and yield functions
 * Volume and Taper Functions
   + Schumacher and Hall tree volume functions with coefficients from SA forestry handbook
   + Max and Burkhart taper function with coefficients from SA forestry handbook
-  + Bi taper functions with published coefficients for Australian Eucalpts and P. radiata in NSW.
+  + Bi taper functions with published coefficients for Australian Eucalypts and P. radiata in NSW.
 
 * Growth models
 
@@ -44,7 +44,30 @@ devtools::install_github("jonathandash/wafR")
 ```
 ## Example
 
+Example of how to use the Bi taper and volume function
+
+```{r example_vol_t}
+
+library(wafR)
+
+# View the stored coefficients for the Bi taper function 
+
+bi_tapercoef_aus(species = 'PRAD')
+
+#Example of how to estimate stem diameter for a subject tree
+
+bi2000(DBH = 21.5, h = 20, H = 28, coefficients = bi_tapercoef_aus(species = 'PRAD'))
+
+
+# Example of how to estimate stem diameter for the same subject tree
+
+bi2000_volume(DBH = 21.5, stump_height = 0.3, h = 20, H = 28, coefficients = bi_tapercoef_aus(species = 'PRAD'))
+
+
+```
+
 This is a basic example which shows you how to solve a common problem:
+
 
 ```{r example}
 library(wafR)
