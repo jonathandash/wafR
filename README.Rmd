@@ -23,6 +23,15 @@ The goal of wafR is to provide data management and graphing according to the Mar
 
 More recently the package has been updated to include growth and yield functions that might be commonly used by the Margules Groome team.
 
+The following is a list of growth and yield functions
+
+* Volume and Taper Functions
+  + Schumacher and Hall tree volume functions with coefficients from SA forestry handbook
+  + Max and Burkhart taper function with coefficients from SA forestry handbook
+  + Bi taper functions with published coefficients for Australian Eucalpts and P. radiata in NSW.
+
+* Growth models
+
 ## Installation
 
 
