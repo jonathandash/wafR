@@ -4,7 +4,7 @@
 \alias{tpr_max_burkhart_safh}
 \title{Stem taper}
 \usage{
-tpr_max_burkhart_safh(DBH, H, h, species, a1, a2, b5, b6, b7, b8)
+tpr_max_burkhart_safh(DBH, H, h, coefficients)
 }
 \arguments{
 \item{DBH}{Tree DBH in cm}
@@ -13,19 +13,7 @@ tpr_max_burkhart_safh(DBH, H, h, species, a1, a2, b5, b6, b7, b8)
 
 \item{h}{Stem height}
 
-\item{species}{Tree species}
-
-\item{a1}{Equation coefficient}
-
-\item{a2}{Equation coefficient}
-
-\item{b5}{Equation coefficient}
-
-\item{b6}{Equation coefficient}
-
-\item{b7}{Equation coefficient}
-
-\item{b8}{Equation coefficient}
+\item{coefficients}{Equation coefficients}
 }
 \value{
 stem diameter at height h

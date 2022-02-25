@@ -4,30 +4,14 @@
 \alias{vol_tree_safh}
 \title{Estimate tree volume}
 \usage{
-vol_tree_safh(
-  DBH,
-  H,
-  species = "E. grandis",
-  b0 = -9.746,
-  b1 = 1.715,
-  b2 = 1.107,
-  f = -2
-)
+vol_tree_safh(DBH, H, coefficients)
 }
 \arguments{
 \item{DBH}{Tree DBH in cm}
 
 \item{H}{Tree height in m}
 
-\item{species}{Tree species}
-
-\item{b0}{Equation coefficient}
-
-\item{b1}{Equation coefficient}
-
-\item{b2}{Equation coefficient}
-
-\item{f}{Form factor modifier from handbook}
+\item{coefficients}{Equation coefficients}
 }
 \value{
 Returns tree volume in cubic metres
