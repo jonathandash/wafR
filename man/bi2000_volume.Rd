@@ -24,8 +24,8 @@ Stem volume
 D Bi, H; 2000; Trigonometric variable-form taper equations for Australian Eucalypts; Forest Science 46(3) pp397-409.
 }
 \examples{
-\dontrun{
-bi2000_volume(30,0.3, 5,40,coef())
-}
+
+bi2000_volume(30,0.3, 40,40,coefficients = bi_tapercoef_aus('CMAC'))
+
 
 }

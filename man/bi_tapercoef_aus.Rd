@@ -10,11 +10,14 @@ bi_tapercoef_aus(species)
 \item{species}{Eucalyptus species code}
 }
 \value{
-Coefficients for Australian Eucalypts for the Bi model
+Coefficients for Australian Eucalypts or P.radiata for the Bi model
 }
 \description{
 Coefficients for Australian Eucalypts and P. radiata. Eucalypt coefficients from table 1 in Bi, H; 2000; Trigonometric variable-form taper equations for Australian Eucalypts; Forest Science 46(3) pp397-409.
 Radiata coefficients from Table 2 in Bi, H and Long, Y. (2001) Flexible taper equation for site-specific management of Pinus radiata in NSW, Australia For. Ecol. and Management 148
+}
+\details{
+Species available are 'CGUM', 'CMAC', 'EAGG', 'EBAD', 'ECAM', 'ECYP', 'EDAL', 'EDEL', 'EELA', 'EFRA', 'EGLO', 'ENIT', 'EOBL', 'EPAU', 'EPIP', 'EPIL', 'ESAL', 'ESIE', 'ESMI', 'ESPP' - (all eucalypts), 'PRAD'
 }
 \examples{
 bi_tapercoef_aus('CMAC')

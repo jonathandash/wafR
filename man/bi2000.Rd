@@ -23,6 +23,6 @@ D Bi, H; 2000; Trigonometric variable-form taper equations for Australian Eucaly
 }
 \examples{
 \dontrun{
-bi2000(30,5,40,coef())
+bi2000(30, 10,40,coefficients = bi_tapercoef_aus('CMAC'))
 }
 }

@@ -23,6 +23,6 @@ Internal function to be integrated for the integration of the Bi 2000 volume fun
 }
 \examples{
 \dontrun{
-bi2000(30,5,40,coef())
+bi2000_squared(30, 10,40,coefficients = bi_tapercoef_aus('CMAC'))
 }
 }

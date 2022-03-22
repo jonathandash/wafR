@@ -9,7 +9,7 @@
 #' @export
 #' @examples
 #' \dontrun{
-#' bi2000(30,5,40,coef())
+#' bi2000(30, 10,40,coefficients = bi_tapercoef_aus('CMAC'))
 #' }
 bi2000 <- function(DBH,h,H,coefficients)
 {
@@ -49,7 +49,7 @@ bi2000 <- function(DBH,h,H,coefficients)
 #'
 #' @examples
 #' \dontrun{
-#' bi2000(30,5,40,coef())
+#' bi2000_squared(30, 10,40,coefficients = bi_tapercoef_aus('CMAC'))
 #' }
 bi2000_squared = function(DBH,h,H,coefficients)
 {
@@ -74,9 +74,9 @@ bi2000_squared = function(DBH,h,H,coefficients)
 #' @importFrom stats integrate
 #'
 #' @examples
-#' \dontrun{
-#' bi2000_volume(30,0.3, 5,40,coef())
-#' }
+#'
+#' bi2000_volume(30,0.3, 40,40,coefficients = bi_tapercoef_aus('CMAC'))
+#'
 #'
 bi2000_volume = function(DBH,stump_height,h,H,coefficients)
 {
@@ -91,8 +91,10 @@ bi2000_volume = function(DBH,stump_height,h,H,coefficients)
 #'
 #' @param species Eucalyptus species code
 #'
-#' @return Coefficients for Australian Eucalypts for the Bi model
+#' @return Coefficients for Australian Eucalypts or P.radiata for the Bi model
 #' @export
+#'
+#' @details Species available are 'CGUM', 'CMAC', 'EAGG', 'EBAD', 'ECAM', 'ECYP', 'EDAL', 'EDEL', 'EELA', 'EFRA', 'EGLO', 'ENIT', 'EOBL', 'EPAU', 'EPIP', 'EPIL', 'ESAL', 'ESIE', 'ESMI', 'ESPP' - (all eucalypts), 'PRAD'
 #'
 #' @examples
 #' bi_tapercoef_aus('CMAC')
