@@ -12,13 +12,14 @@ ba(DBH, plotsize)
 \item{plotsize}{Area of the plot in hectares}
 }
 \value{
-The basal area in
+The plot basal area in m2/ha
 }
 \description{
-The basal area is the area of a given section of land that is occupied by the cross-section of tree trunks and stems at the base.
+The basal area is the area of a given section of land that is occupied by the cross-section of tree stems at breast height.
 }
 \examples{
-\dontrun{
-ba(DBH = dbh_2,plotsize = 0.02)
-}
+
+dbh = runif(20, 25, 35) # Make an example set of dbhs
+ba(DBH = dbh,plotsize = 0.02)
+
 }
