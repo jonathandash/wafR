@@ -1,5 +1,5 @@
 Package: wafR
-Title: Tools to help Margules Groome team with data processing, modelling, and graphing.
+Title: Tools to help Margules Groome team with data processing, modelling, and graphing
 Version: 0.0.0.9000
 Authors@R: 
     person(given = "Jonathan",
