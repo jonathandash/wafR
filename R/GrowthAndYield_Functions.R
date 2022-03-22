@@ -166,11 +166,12 @@ vol_tpr_coef_sa = function(species)
     coefficients = c(NA, NA, NA, NA, -2.832, 1.124, -0.896, 16.228, 0.724, 0.103)
   }
 
-  if(coefficients[6] == 'No'){
+  if(is.na(coefficients[6]))
+    {
     print('There is a taper function but no volume function for this species in the SA Forestry Handbook. Choose another species if you want tree volume.')
   }
 
-  if(coefficients[2] == 'No'){
+  if(is.na(coefficients[2])){
 
     print('There is a volume function but no taper function for this species in the SA Forestry Handbook. Choose another species if you want tree taper.')
 
