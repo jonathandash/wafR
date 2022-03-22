@@ -1,5 +1,5 @@
 Package: wafR
-Title: Data management and graphing for WAF
+Title: Tools to help Margules Groome team with data processing, modelling, and graphing.
 Version: 0.0.0.9000
 Authors@R: 
     person(given = "Jonathan",
@@ -7,7 +7,7 @@ Authors@R:
            role = c("aut", "cre"),
            email = "jonathan_dash@hotmail.com",
            comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: This package helps standardise data management and graphing for the outputs of the national wood availability forecast (WAF) produced by Margules Groome for the NZ MPI.
+Description: This package helps standardise data management, processing, and graphing for common tasks undertaken by Margules Groome.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
