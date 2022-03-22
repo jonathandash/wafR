@@ -21,9 +21,33 @@ knitr::opts_chunk$set(
 
 The goal of wafR is to provide data management and graphing according to the Margules Groome style guide. This package was originally developed for outputs from the New Zealand Wood Availability Forecasts produced by Margules Groome for the NZ Ministry for Primary Industries (MPI) but has now been extended to include other functions. The Margules Groome team may find these functions useful for more general graphing in the house style. 
 
-More recently the package has been updated to include growth and yield functions that might be commonly used by the Margules Groome team.
+The package has been updated to include growth and yield functions that might be commonly used by the Margules Groome team.
 
-The following is a list of growth and yield functions
+The following is a list of package functions. More functions are being regularly added.
+
+* General forest inventory functions
+  + mth - Calculates mean top height given a set of tree heights
+  + pdh - Calculates predominant height
+  + spha - calculates the stems per hectare for an inventory plot
+  + thpa - Calculates the trees per hectare for an inventory plot
+  + QMD - Calculates the quadractic mean DBH.
+  + ba - Calculates the basal area for a plot given a series of DBH values     and a plot size (ha)
+  + RMSE - Calculates the root mean square error (RMSE) given a set of        predictions and actual values. Useful for assessing model performance.
+  + std.err - Calculates the standard error of a set of samples.
+  + conf.int - Calculates the confidence limit around the mean at the 95%     confidence level.
+  + ple - Calculates the probable limit of error (PLE) for a set of           samples. These might be plot level estimates of volume in a forest        inventory.
+  + is_outlier - Identifes outliers in a population.
+  + 
+  
+  
+* Graphing helpers
+  + themeMagGroome - Applies the Margules Groome mapping theme to a ggplot     object.
+  + scale_fill_MagGroome - Applies the Margules Groome colour palette to      the fill argulment in a ggplot object when graphing.
+  + scale_colour_MagGroome - Applies the Margules Groome colour palette to     the colour argulment in a ggplot object when graphing.
+  + shift_legend - Will shift the legend to occupy empty panels in  a         facetted plot.
+  + MG_save - saves a ggplot object as a figure suitable for insertion        into a Margules Groome report
+  + MagGroome_cols - Returns the Margules Groome colours
+  + MagGroome_pal - Returns the Margules Groome colour palette
 
 * Volume and Taper Functions
   + Schumacher and Hall tree volume functions with coefficients from SA forestry handbook
@@ -31,6 +55,9 @@ The following is a list of growth and yield functions
   + Bi taper functions with published coefficients for Australian Eucalypts and P. radiata in NSW.
 
 * Growth models
+
+
+* WAF functions
 
 ## Installation
 
@@ -65,12 +92,12 @@ bi2000_volume(DBH = 21.5, stump_height = 0.3, h = 20, H = 28, coefficients = bi_
 
 # Example of how to estimate stem volume a subject tree using South African coefficients from the SA forestry handbook
 
-vol_tree_safh(DBH = 21.5, H = 28, species = 'E. grandis')
+vol_tree_safh(DBH = 21.5, H = 28, coefficients = vol_tpr_coef_sa(species = 'EGRA'))
 
 
 # Example of how to estimate stem volume a subject tree using South African coefficients from the SA forestry handbook
 
-tpr_max_burkhart_safh(DBH = 21.5, H = 28, h = 15, species = 'E. grandis')
+tpr_max_burkhart_safh(DBH = 21.5, H = 28, h = 15, coefficients = vol_tpr_coef_sa(species = 'EGRA'))
 
 
 ```
