@@ -36,8 +36,8 @@ The following is a list of package functions. More functions are being regularly
   + std.err - Calculates the standard error of a set of samples.
   + conf.int - Calculates the confidence limit around the mean at the 95%     confidence level.
   + ple - Calculates the probable limit of error (PLE) for a set of           samples. These might be plot level estimates of volume in a forest        inventory.
-  + is_outlier - Identifes outliers in a population.
-  + 
+  + is_outlier - Identifies outliers in a population.
+  + mdd - Calculates mean dominant DBH
   
   
 * Graphing helpers
